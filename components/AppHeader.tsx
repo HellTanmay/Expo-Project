@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, Image, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 type AppHeaderProps = {

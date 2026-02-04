@@ -42,7 +42,7 @@ export default function LoginScreen() {
       <View style={styles.card}>
         <Text style={styles.title}>Welcome back</Text>
         <AppInput placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" autoCapitalize="none" />
-        <AppInput placeholder="Password" secureTextEntry value={password} onChangeText={setPassword} />
+        <AppInput placeholder="Password"  value={password} onChangeText={setPassword} />
 
         {error ? <Text style={styles.error}>{error}</Text> : null}
 

@@ -1,11 +1,13 @@
 import React from 'react';
-import { Pressable, Text, StyleSheet, ViewStyle } from 'react-native';
+import { Pressable, Text, StyleSheet, ViewStyle, View } from 'react-native';
 
 type AppButtonProps = {
   title: string;
   onPress: () => void;
   style?: ViewStyle;
   disabled?: boolean;
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
 };
 
 export default function AppButton({
@@ -13,6 +15,8 @@ export default function AppButton({
   onPress,
   style,
   disabled = false,
+  leftIcon,
+  rightIcon,
 }: AppButtonProps) {
   return (
     <Pressable
@@ -25,7 +29,9 @@ export default function AppButton({
         style,
       ]}
     >
+      {leftIcon ? <View style={styles.iconLeft}>{leftIcon}</View> : null}
       <Text style={styles.text}>{title}</Text>
+      {rightIcon ? <View style={styles.iconRight}>{rightIcon}</View> : null}
     </Pressable>
   );
 }
@@ -37,6 +43,8 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     alignItems: 'center',
     marginVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'center',
     shadowColor: '#fff200ff',
     shadowOpacity: 0.12,
     shadowOffset: { width: 0, height: 6 },
@@ -54,4 +62,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
   },
+  iconLeft: { marginRight: 10 },
+  iconRight: { marginLeft: 10 },
 });

@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, Platform } from "react-native";
 import AppHeader from "../components/AppHeader";
 import AppButton from "../components/AppButton";
 import { getUser, StoredUser } from "../utils/storage";
+import Ionicons from "@expo/vector-icons/build/Ionicons";
 
 export default function ProfileScreen() {
   const [user, setUser] = useState<StoredUser | null>(null);
@@ -64,7 +65,7 @@ export default function ProfileScreen() {
             <Text style={styles.label}>Member since:</Text>
             <Text style={styles.value}>{"2026-01-01"}</Text>
           </View>
-          <AppButton title="Edit Profile" onPress={() => {}} />
+          <AppButton title="Edit Profile" onPress={() => {}} leftIcon={<Ionicons name="create" size={18} color="#fff" />} />
         </View>
       </View>
     </View>

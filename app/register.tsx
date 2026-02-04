@@ -37,8 +37,8 @@ export default function RegisterScreen() {
         <Text style={styles.title}>Register</Text>
         <AppInput placeholder="Name" value={name} onChangeText={setName} />
         <AppInput placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" autoCapitalize="none" />
-        <AppInput placeholder="Password" secureTextEntry value={password} onChangeText={setPassword} />
-        <AppInput placeholder="Confirm Password" secureTextEntry value={confirm} onChangeText={setConfirm} />
+        <AppInput placeholder="Password"  value={password} onChangeText={setPassword} />
+        <AppInput placeholder="Confirm Password"  value={confirm} onChangeText={setConfirm} />
         <AppButton title={loading ? 'Creating...' : 'Register'} onPress={handleRegister} disabled={loading} />
         <TouchableOpacity onPress={() => router.push('/login')}>
             <Text style={styles.link}>Already have an account? Login</Text>
