@@ -6,10 +6,34 @@ import AppButton from '../components/AppButton';
 import { getUser, StoredUser } from '@/utils/storage';
 import { useEffect, useState } from 'react';
 import { Platform } from 'react-native';
+import * as Notifications from 'expo-notifications';
+import { getPushToken } from '@/utils/pushtoken';
 
 export default function HomeScreen() {
   const router = useRouter();
   const [user, setUser] = useState<StoredUser | null>(null);
+  const sendNotification = async () => {
+    const token = await getPushToken();
+    if (!token) return;
+
+    await fetch('https://exp.host/--/api/v2/push/send', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        to: token,
+        title: 'New Products',
+        body: 'Tap to view products',
+        data: {
+          screen: '/screens/product',
+        },
+        sound: 'default',
+        priority: 'high',
+      }),
+    });
+  };
 
   useEffect(() => {
     (async () => {
@@ -28,6 +52,7 @@ export default function HomeScreen() {
         <AppButton title="Product" onPress={() => router.push('/screens/product')} leftIcon={<Ionicons name="pricetag" size={18} color="#fff" />} />
         <AppButton title="Settings" onPress={()=>{}} leftIcon={<Ionicons name="settings" size={18} color="#fff" />}/> 
         <AppButton title="Logout" onPress={() => router.replace('/login')} leftIcon={<Ionicons name="log-out" size={18} color="#fff" />} />
+         <AppButton title="Send Test Notification" onPress={sendNotification} />
       </View>
     </View>
   );

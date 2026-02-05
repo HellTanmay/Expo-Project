@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1079185804337",
+    "project_id": "expo-app-b2d54",
+    "storage_bucket": "expo-app-b2d54.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079185804337:android:ac626b14b35718cdd61910",
+        "android_client_info": {
+          "package_name": "com.tanmay.expoapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaXxb-T5QCbgJWr8WzrxEKkLhnhGrxMYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
